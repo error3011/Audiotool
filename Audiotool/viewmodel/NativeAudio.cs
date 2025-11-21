@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using Audiotool.repository;
 using System.Collections.ObjectModel;
 using Audiotool.model;
@@ -12,124 +12,98 @@ namespace Audiotool.viewmodel;
 
 public class NativeAudio : ViewModelBase
 {
-
-    private ObservableCollection<Audio> _audioFiles;
-
     public ObservableCollection<Audio> AudioFiles
     {
-        get { 
-            return _audioFiles; 
-        }
-        set { 
-            _audioFiles = value;
+        get => field;
+        set
+        {
+            field = value;
             OnPropertyChanged();
         }
     }
-
-    private Audio _selectedAudio;
 
     public Audio SelectedAudio
     {
-        get { return _selectedAudio; }
-        set { _selectedAudio = value; }
+        get => field;
+        set => field = value;
     }
-
-    private IList _selectedItems;
 
     public IList SelectedItems
     {
-        get { return _selectedItems; }
+        get => field;
         set
         {
-            _selectedItems = value;
+            field = value;
             OnPropertyChanged();
         }
     }
-
-    private string _soundSetName;
 
     public string SoundSetName
     {
-        get { 
-            return _soundSetName; 
-        }
-        set {
-            _soundSetName = value;
+        get => field;
+        set
+        {
+            field = value;
             OnPropertyChanged();
         }
     }
-
-    private string _audioBankName;
 
     public string AudioBankName
     {
-        get
-        {
-            return _audioBankName;
-        }
+        get => field;
         set
         {
-            _audioBankName = value;
+            field = value;
             OnPropertyChanged();
         }
     }
-
-    private string _outputPath;
 
     public string OutputPath
     {
-        get { return _outputPath; }
-        set { 
-            _outputPath = value;
+        get => field;
+        set
+        {
+            field = value;
             OnPropertyChanged();
         }
     }
-
-    private string _audioDataFileName;
 
     public string AudioDataFileName
     {
-        get
-        {
-            return _audioDataFileName;
-        }
+        get => field;
         set
         {
-            _audioDataFileName = value;
+            field = value;
             OnPropertyChanged();
         }
     }
 
-    private string _outputAudioName;
     public string OutputAudioName
     {
-        get { return _outputAudioName; }
+        get => field;
         set
         {
-            _outputAudioName = value;
+            field = value;
             OnPropertyChanged();
         }
     }
-
-    private bool _debugFiles;
 
     public bool DebugFiles
     {
-        get { return _debugFiles; }
+        get => field;
         set
         {
-            _debugFiles = value;
+            field = value;
             OnPropertyChanged();
         }
     }
 
-    private string _lastLoadedSettingsPath;
     public string LastLoadedSettingsPath
     {
-        get { return _lastLoadedSettingsPath; }
+        get => field;
         set
         {
-            _lastLoadedSettingsPath = value;
+            field = value;
             OnPropertyChanged();
         }
     }

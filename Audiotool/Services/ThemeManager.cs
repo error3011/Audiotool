@@ -14,7 +14,6 @@ namespace Audiotool.Services
     {
         private static ThemeManager _instance;
         private static readonly object _lock = new object();
-        private ThemeType _currentTheme;
         private const string ThemeSettingsFile = "theme_settings.txt";
 
         public static ThemeManager Instance
@@ -41,12 +40,12 @@ namespace Audiotool.Services
 
         public ThemeType CurrentTheme
         {
-            get => _currentTheme;
+            get => field;
             private set
             {
-                if (_currentTheme != value)
+                if (field != value)
                 {
-                    _currentTheme = value;
+                    field = value;
                     OnPropertyChanged(nameof(CurrentTheme));
                     OnPropertyChanged(nameof(IsDarkMode));
                 }
@@ -120,7 +119,7 @@ namespace Audiotool.Services
                     var themeString = File.ReadAllText(ThemeSettingsFile).Trim();
                     if (Enum.TryParse<ThemeType>(themeString, out var savedTheme))
                     {
-                        _currentTheme = savedTheme;
+                        CurrentTheme = savedTheme;
                         return;
                     }
                 }
@@ -129,7 +128,7 @@ namespace Audiotool.Services
             {
             }
 
-            _currentTheme = ThemeType.Dark;
+            CurrentTheme = ThemeType.Dark;
         }
 
         private void SaveThemeToSettings()
